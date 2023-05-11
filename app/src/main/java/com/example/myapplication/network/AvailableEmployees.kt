@@ -32,16 +32,12 @@ class AvailableEmployees : AppCompatActivity() {
                     }
                 }
             }
-
             override fun onFailure(call: Call<MutableList<EmployeeModel>>, t: Throwable) {
                 Toast.makeText(applicationContext, "Не удалось загрузить сотрудников...", Toast.LENGTH_LONG).show()
                 finish()
             }
-
         })
-
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == android.R.id.home) finish()
         return true

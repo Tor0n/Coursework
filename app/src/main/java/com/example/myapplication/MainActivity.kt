@@ -23,7 +23,6 @@ import kotlinx.coroutines.*
     private val dbManager = MyDbManager(this)
     private val adapter = RcAdapter(ArrayList(), this)
     private var job: Job? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,7 +30,6 @@ import kotlinx.coroutines.*
         supportActionBar?.setDisplayShowTitleEnabled(false)
         init()
     }
-
     override fun onResume() {
         super.onResume()
         dbManager.openDB()
@@ -63,22 +61,17 @@ import kotlinx.coroutines.*
 
         searchView.setSearchableInfo(manager.getSearchableInfo(componentName))
         searchView.queryHint = getString(R.string.search_view_hint)
-
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
                 fillAdapter(newText!!)
                 return true
             }
-
         })
-
         return true
     }
-
      private fun fillAdapter(text: String) {
          job?.cancel()
          job = CoroutineScope(Dispatchers.Main).launch {
@@ -87,11 +80,9 @@ import kotlinx.coroutines.*
              adapter.updateAdapter(dbManager.readDbData(text))
          }
      }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.available_employees -> {
-
                 val i = Intent(this, AvailableEmployees::class.java)
                 startActivity(i)
             }

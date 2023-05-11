@@ -11,9 +11,6 @@ open class DataModel: ViewModel() {
     val ifFinished: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()
     }
-    val confirmHide: MutableLiveData<Boolean> by lazy {
-        MutableLiveData<Boolean>()
-    }
     val chooseHide: MutableLiveData<Boolean> by lazy {
         MutableLiveData<Boolean>()
     }

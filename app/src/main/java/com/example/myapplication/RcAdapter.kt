@@ -25,7 +25,7 @@ class RcAdapter(arrayList1: ArrayList<EmployeeList>, contextM: Context): Recycle
             var onLongClickListenerActive = false
             binding.empNameRc.text = item.name
             Glide.with(context).load(item.url).into(binding.empImageRc)
-            //binding.empImageRc.setImageURI(Uri.parse(item.url))
+            //binding.empImageRc.setImageURI(Url.parse(item.url))
             itemView.setOnClickListener {
                 if (!onLongClickListenerActive) {
                     val intent = Intent(context, EditActivity::class.java).apply {

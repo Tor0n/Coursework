@@ -102,14 +102,12 @@ class EditActivity : AppCompatActivity() {
     }
 
     private fun getIntents() {
-
-
         val i = intent
         tempId = i.getIntExtra(IntentConstants.I_ID_KEY, 0)
         employeeCreated = i.getBooleanExtra(IntentConstants.I_EMP_STATUS_KEY, false)
-
         binding.editName.setText(i.getStringExtra(IntentConstants.I_NAME_KEY))
         binding.editSalary.setText(i.getStringExtra(IntentConstants.I_SALARY_KEY))
+        url = i.getStringExtra(IntentConstants.I_URL_KEY).toString()
 
         if (i.getStringExtra(IntentConstants.I_URL_KEY) != null) {
             Glide.with(this@EditActivity)
